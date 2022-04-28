@@ -9,8 +9,8 @@ namespace BankSystem.Models
     {
         public DateTime TransactionDate { get; set; }
         public TransactionTypes TransactionType { get; set; }
-        public Account Sender { get; set; }
-        public Account Receiver { get; set; }
+        public BankAccount Sender { get; set; }
+        public BankAccount Receiver { get; set; }
         public decimal TransactionAmount { get; set; }
     }
 }
