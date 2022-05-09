@@ -26,9 +26,9 @@ namespace BankSystem.Models
             User = user;
             Account = account;
         }
-        public CardProviders SetCardProvider(int userInput)
+        public CardProviders SetCardProvider(int userSelection)
         {
-            return CardProvider == (CardProviders)userInput ? CardProviders.Mastercard : CardProviders.VISA;
+            return CardProvider == (CardProviders)userSelection ? CardProviders.Mastercard : CardProviders.VISA;
             //switch (userChoice)
             //{
             //    case 1:

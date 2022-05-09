@@ -9,6 +9,7 @@ namespace BankSystem.Models
     {
         public AccountTypes AccountType { get; set; }
         public string AccountNumber { get; set; }
+        public int AccountNumberLength { get; set; }
         public decimal AccountBalance { get; set; }
         public DateTime AccountCreatedOn { get; set; }
         public List<Transaction> Transactions { get; set; }
@@ -49,6 +50,17 @@ namespace BankSystem.Models
         public DateTime SetAccountCreatedOn()
         {
             return DateTime.Now;
+        }
+        public Card CreateCard(int userSelection, int userPin)
+        {
+            var card = new Card();
+            card.CardProvider = card.SetCardProvider(userSelection);
+            card.CardNumber = card.GenerateCardNumber();
+            card.CardPin = card.SetCardPin(userPin);
+            card.CardExpirationDate = card.SetCardExpirationDate();
+            card.Account = this;
+            card.User = User;
+            return card;
         }
     }
 }
