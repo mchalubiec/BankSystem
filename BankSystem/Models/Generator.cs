@@ -31,7 +31,7 @@ namespace BankSystem.Models
             }
             return modulo.ToString();
         }
-        public string GenerateBankIdentificator(int modulo, )
+        public string GenerateBankIdentificator(int modulo)
         {
             string bankIdentificator = "";
             return bankIdentificator;
