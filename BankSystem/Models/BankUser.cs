@@ -22,14 +22,20 @@ namespace BankSystem.Models
                 }
             }
         }
-        public bool IsLogged { get; set; }
         public List<BankAccount> Accounts { get; set; }
         public List<Card> Cards { get; set; }
-        public BankUser(string firstName, string secondName, string email)
+        public BankUser CreateBankUser()
         {
-            FirstName = firstName;
-            SecondName = secondName;
-            Email = email;
+            var bankUser = new BankUser();
+            bankUser.FirstName = Utility.GetUserInput("name: ");
+            bankUser.SecondName = Utility.GetUserInput("surname: ");
+            bankUser.Email = Utility.GetUserInput("email: ");
+            return bankUser;
+        }
+        public void AddUserToBank(List<BankUser> bankUsers, BankUser bankUser)
+        {
+            bankUser = bankUser.CreateBankUser();
+            bankUsers.Add(bankUser);
         }
         private bool IsValidEmail(string email)
         {
